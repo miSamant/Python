@@ -1,0 +1,37 @@
+from selenium import webdriver
+import  os
+import random
+import randomNum
+
+
+driver = webdriver.Chrome('D://Personal//Mihir//Python//Study//chromedriver.exe')
+driver.get('https://web.whatsapp.com/')
+
+
+name = input('Enter the name of user or group : ')
+# msg = input('Enter your message : ')
+count = int(input('Enter the count : '))
+input('Enter anything after scanning QR code')
+
+user = driver.find_element_by_xpath('//span[@title = "{}"]'.format(name))
+user.click()
+
+msg_box = driver.find_element_by_class_name('_2S1VP')
+
+for i in range(count):
+    msg =randomNum.randomhello(count)
+    msg_box.send_keys(msg)
+    button = driver.find_element_by_class_name('_35EW6')
+    button.click()
+
+
+#YOU NEED BELOW CODE ASWELL AND RUN THE 2ND FILE #
+# import random
+# 
+# 
+# def randomhello(c1):
+#     HelloList= ["Hello","Hie","Hey there","how are you?","wassup"]
+#     for n in range(c1):
+#         whtsList=(random.choice(HelloList))
+#         return(whtsList)
+# 
