@@ -1,0 +1,23 @@
+from pytube import YouTube
+import os
+
+link = input("Please enter the link")
+
+# yt=Youtube(link)
+
+videos=YouTube(link).streams.all()
+s=1
+for video in videos:
+    print(str(s)+"."+str(video))
+    s+=1
+
+num=int(input("Enter the number of the video"))
+vid=videos[num-1]
+
+# destination=input("Please enter the destination ")
+# vid.download(destination)
+
+dest = os.path.dirname('D:\\Personal\\Mihir\\python\\study\\videos\\')
+vid.download(dest)
+print(f'Video has been successfully downloaded to {dest}')
+
